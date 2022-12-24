@@ -11,7 +11,7 @@ public class SpringBootPracticeAppApplication {
 		SpringApplication.run(SpringBootPracticeAppApplication.class, args);
 	}
 	
-	@GetMapping
+	@GetMapping("/")
 	Customer getCustomer() {
 		return new Customer(1l, "Some name");
 	}
