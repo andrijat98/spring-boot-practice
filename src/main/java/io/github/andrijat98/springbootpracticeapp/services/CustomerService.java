@@ -1,14 +1,22 @@
 package io.github.andrijat98.springbootpracticeapp.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import io.github.andrijat98.springbootpracticeapp.entities.Customer;
+import io.github.andrijat98.springbootpracticeapp.repos.CustomerRepo;
 
 @Service
 public class CustomerService {
-
-	public Customer getCustomer() {
-		return new Customer(1l, "Some name");
-	}
 	
+	private final CustomerRepo customerRepo;
+	
+	public CustomerService(CustomerRepo customerRepo) {
+		this.customerRepo = customerRepo;
+	}
+
+	public List<Customer> getCustomers() {
+		return customerRepo.getCustomers();
+	}
 }
