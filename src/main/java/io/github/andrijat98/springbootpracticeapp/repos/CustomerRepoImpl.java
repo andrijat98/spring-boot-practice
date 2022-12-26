@@ -10,7 +10,7 @@ public class CustomerRepoImpl implements CustomerRepo{
 	@Override
 	public List<Customer> getCustomers() {
 		return Collections.singletonList(
-				new Customer(1l, "TODO")
+				new Customer(1l, "TODO", "to do")
 				);
 	}
 
