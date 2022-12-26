@@ -3,11 +3,9 @@ package io.github.andrijat98.springbootpracticeapp.repos;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
-
 import io.github.andrijat98.springbootpracticeapp.entities.Customer;
 
-@Component(value = "fake")
+
 public class CustomerFakeRepo implements CustomerRepo{
 
 	@Override
