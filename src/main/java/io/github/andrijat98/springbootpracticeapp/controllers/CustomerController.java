@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.andrijat98.springbootpracticeapp.entities.Customer;
@@ -28,8 +29,8 @@ public class CustomerController {
 		return customerService.getCustomers();
 	}
 	
-	@PostMapping
-	void createNewCustomer(Customer customer) {
+	@PostMapping("/")
+	void createNewCustomer(@RequestBody Customer customer) {
 		System.out.println("Post request: ");
 		System.out.println(customer);
 	}
