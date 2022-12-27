@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.github.andrijat98.springbootpracticeapp.entities.Customer;
 import io.github.andrijat98.springbootpracticeapp.services.CustomerService;
 
-@RequestMapping(path = "api/v1/customer")
+@RequestMapping(path = "api/v1/customers")
 @RestController
 public class CustomerController {
 
@@ -26,9 +26,14 @@ public class CustomerController {
 		this.customerService = customerService;
 	}
 	
-	@GetMapping("all")
+	@GetMapping
 	List<Customer> getCustomers() {
 		return customerService.getCustomers();
+	}
+	
+	@GetMapping(path = "{customerId}")
+	Customer getCustomer(@PathVariable("customerId") Long id) {
+		return customerService.getCustomer(id);
 	}
 	
 	@PostMapping("/")
