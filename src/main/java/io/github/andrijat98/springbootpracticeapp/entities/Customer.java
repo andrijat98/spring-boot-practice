@@ -4,10 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class Customer {
 	
 	private final Long id;
+	@NotBlank
 	private final String name;
+	@NotBlank
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private final String password;
 	

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.github.andrijat98.springbootpracticeapp.entities.Customer;
 import io.github.andrijat98.springbootpracticeapp.services.CustomerService;
+import jakarta.validation.Valid;
 
 @RequestMapping(path = "api/v1/customers")
 @RestController
@@ -36,8 +37,8 @@ public class CustomerController {
 		return customerService.getCustomer(id);
 	}
 	
-	@PostMapping("/")
-	void createNewCustomer(@RequestBody Customer customer) {
+	@PostMapping
+	void createNewCustomer(@RequestBody @Valid Customer customer) {
 		System.out.println("Post request: ");
 		System.out.println(customer);
 	}
