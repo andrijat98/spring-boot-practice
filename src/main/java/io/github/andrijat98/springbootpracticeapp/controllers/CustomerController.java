@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.andrijat98.springbootpracticeapp.entities.Customer;
 import io.github.andrijat98.springbootpracticeapp.services.CustomerService;
 
+@RequestMapping(path = "api/v1/customer")
 @RestController
 public class CustomerController {
 
@@ -24,7 +26,7 @@ public class CustomerController {
 		this.customerService = customerService;
 	}
 	
-	@GetMapping("/")
+	@GetMapping("all")
 	List<Customer> getCustomers() {
 		return customerService.getCustomers();
 	}
@@ -40,8 +42,8 @@ public class CustomerController {
 		System.out.println("Delete request for customer with id: " + id);
 	}
 	
-	@PutMapping
-	void updateCustomer(Customer customer) {
+	@PutMapping("/")
+	void updateCustomer(@RequestBody Customer customer) {
 		System.out.println("Put request: ");
 		System.out.println(customer);
 	}
