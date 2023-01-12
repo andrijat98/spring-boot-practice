@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 
 import io.github.andrijat98.springbootpracticeapp.repos.CustomerFakeRepo;
 import io.github.andrijat98.springbootpracticeapp.repos.CustomerRepo;
-import io.github.andrijat98.springbootpracticeapp.repos.CustomerRepoImpl;
 
 @Configuration
 public class CustomerConfig {
@@ -25,7 +24,7 @@ public class CustomerConfig {
 	@Bean
 	CustomerRepo customerRepo() {
 		System.out.println("useFakeCustomerRepo = " + useFakeCustomerRepo);
-		return useFakeCustomerRepo ?
-				new CustomerFakeRepo() : new CustomerRepoImpl();
+		return new CustomerFakeRepo();
+
 	}
 }
