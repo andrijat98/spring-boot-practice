@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import io.github.andrijat98.springbootpracticeapp.entities.Customer;
+import io.github.andrijat98.springbootpracticeapp.exceptions.NotFoundException;
 import io.github.andrijat98.springbootpracticeapp.repos.CustomerRepo;
 
 @Service
@@ -27,6 +28,6 @@ public class CustomerService {
 		.stream()
 		.filter(customer -> customer.getId().equals(id))
 		.findFirst()
-		.orElseThrow(() -> new IllegalStateException("customer not found"));
+		.orElseThrow(() -> new NotFoundException("customer with id " + id + " not found"));
 	}
 }
