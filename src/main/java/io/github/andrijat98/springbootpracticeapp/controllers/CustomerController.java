@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.andrijat98.springbootpracticeapp.entities.Customer;
+import io.github.andrijat98.springbootpracticeapp.exceptions.ApiRequestException;
 import io.github.andrijat98.springbootpracticeapp.services.CustomerService;
 import jakarta.validation.Valid;
 
@@ -35,6 +36,11 @@ public class CustomerController {
 	@GetMapping(path = "{customerId}")
 	Customer getCustomer(@PathVariable("customerId") Long id) {
 		return customerService.getCustomer(id);
+	}
+	
+	@GetMapping(path = "{customerId}/exception")
+	Customer getCustomerException(@PathVariable("customerId") Long id) {
+		throw new ApiRequestException("ApiRequestException for customer" + id);
 	}
 	
 	@PostMapping
