@@ -44,11 +44,11 @@ public class CustomerController {
 	}
 	
 	@DeleteMapping(path = "{customerId}")
-	void delteCustomer(@PathVariable("customerId") Long id) {
+	void deleteCustomer(@PathVariable("customerId") Long id) {
 		System.out.println("Delete request for customer with id: " + id);
 	}
 	
-	@PutMapping("/")
+	@PutMapping()
 	void updateCustomer(@RequestBody Customer customer) {
 		System.out.println("Put request: ");
 		System.out.println(customer);

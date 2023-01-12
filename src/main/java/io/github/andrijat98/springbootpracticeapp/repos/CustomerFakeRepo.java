@@ -12,8 +12,8 @@ public class CustomerFakeRepo implements CustomerRepo{
 	public List<Customer> getCustomers() {
 		// TODO Auto-generated method stub
 		return Arrays.asList(
-				new Customer(1l, "Some name", "password"),
-				new Customer(2l, "Some other name", "password123")
+				new Customer(1l, "Some name", "password", "email@gmail.com"),
+				new Customer(2l, "Some other name", "password123", "email@gmail.com")
 				);
 	}
 
